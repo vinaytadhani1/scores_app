@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:score_app/widget/common.dart';
 
-class Calender_screen extends StatefulWidget {
-  const Calender_screen({super.key});
+class FixtureScreen extends StatefulWidget {
+  const FixtureScreen({super.key});
 
   @override
-  State<Calender_screen> createState() => _Calender_screenState();
+  State<FixtureScreen> createState() => _FixtureScreenState();
 }
 
-class _Calender_screenState extends State<Calender_screen> {
+class _FixtureScreenState extends State<FixtureScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +18,7 @@ class _Calender_screenState extends State<Calender_screen> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Calender',
+          'Fixture Screen',
         ),
       ),
       body: Column(

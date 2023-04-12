@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:score_app/view/bottom_screen/calender_screen/calender_screen.dart';
+import 'package:score_app/view/bottom_screen/calender_screen/fixturescreen.dart';
 import 'package:score_app/view/bottom_screen/doc_screen/docs_screen.dart';
 import 'package:score_app/view/bottom_screen/live_screen/live_screen.dart';
 
@@ -18,7 +18,7 @@ class _Main_Home_PageState extends State<Main_Home_Page> {
 
   final pages = [
     const Home_Screen(),
-    const Calender_screen(),
+    const FixtureScreen(),
     const Docs_screen(),
     const Live_Screen()
   ];

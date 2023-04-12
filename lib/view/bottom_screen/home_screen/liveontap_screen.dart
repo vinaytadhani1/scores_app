@@ -1,4 +1,4 @@
-import 'package:easy_stepper/easy_stepper.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:score_app/widget/common.dart';
@@ -6,7 +6,11 @@ import 'package:score_app/widget/common.dart';
 import '../../../model/live_scrore.dart';
 
 class LiveMatch_Screen extends StatefulWidget {
-  LiveMatch_Screen({super.key});
+  Responsee? response;
+  LiveMatch_Screen({
+    Key? key,
+    this.response,
+  }) : super(key: key);
 
   @override
   State<LiveMatch_Screen> createState() => _LiveMatch_ScreenState();
@@ -25,12 +29,7 @@ class _LiveMatch_ScreenState extends State<LiveMatch_Screen> {
     "Stats",
     "Summary",
   ];
-  
-  @override
-  void initState() {
-    // print(widget.response?.response![0].teams!.away!.name ?? "");
-    super.initState();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -137,9 +136,9 @@ class _LiveMatch_ScreenState extends State<LiveMatch_Screen> {
                           children: [
                             Row(
                               mainAxisAlignment: MainAxisAlignment.center,
-                              children: const [
+                              children:  [
                                 Text(
-                                  'Stamford Bridge',
+                                  widget.response!.fixture!.venue!.name??"",
                                   style: TextStyle(
                                     color: Colors.white,
                                     fontSize: 14,
@@ -163,18 +162,21 @@ class _LiveMatch_ScreenState extends State<LiveMatch_Screen> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Column(
-                                  children: const [
+                                  children: [
                                     Image(
-                                      image: AssetImage('assets/chelsea.png'),
+                                      image: NetworkImage( widget.response!.teams!.home!.logo??""),
                                       height: 60,
                                       width: 60,
                                     ),
                                     SizedBox(height: 5),
-                                    Text(
-                                      'Chelsea',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
+                                    Container(
+                                      width: 100,
+                                      child: Text(
+                                        widget.response!.teams!.home!.name??"",overflow: TextOverflow.fade,maxLines: 1,softWrap: false,
+                                        style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 13,
+                                        ),
                                       ),
                                     ),
                                     Text(
@@ -189,7 +191,7 @@ class _LiveMatch_ScreenState extends State<LiveMatch_Screen> {
                                 Column(
                                   children: [
                                     Text(
-                                      '1 : 1',
+                                      "${widget.response!.goals!.home} : ${widget.response!.goals!.away}",
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 28),
                                     ),
@@ -216,19 +218,21 @@ class _LiveMatch_ScreenState extends State<LiveMatch_Screen> {
                                   ],
                                 ),
                                 Column(
-                                  children: const [
+                                  children: [
                                     Image(
                                       image:
-                                          AssetImage('assets/mancgester.png'),
+                                          NetworkImage(widget.response!.teams!.away!.logo??""),
                                       height: 60,
                                       width: 60,
                                     ),
                                     SizedBox(height: 5),
-                                    Text(
-                                      'Man Utd',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 13,
+                                    Container(width: 100,
+                                      child: Text(
+                                        widget.response!.teams!.away!.name??"",overflow: TextOverflow.fade,maxLines: 1,softWrap: false,
+                                        style: TextStyle(
+                                          color: Colors.white,overflow: TextOverflow.ellipsis,
+                                          fontSize: 13,
+                                        ),
                                       ),
                                     ),
                                     Text(

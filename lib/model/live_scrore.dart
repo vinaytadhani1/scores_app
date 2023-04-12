@@ -4,7 +4,7 @@ class Live_Scrore {
   List<String>? errors;
   int? results;
   Paging? paging;
-  List<Response>? response;
+  List<Responsee>? response;
 
   Live_Scrore(
       {this.get,
@@ -24,9 +24,9 @@ class Live_Scrore {
     paging =
         json['paging'] != null ? new Paging.fromJson(json['paging']) : null;
     if (json['response'] != null) {
-      response = <Response>[];
+      response = <Responsee>[];
       json['response'].forEach((v) {
-        response!.add( Response.fromJson(v));
+        response!.add( Responsee.fromJson(v));
       });
     }
   }
@@ -84,7 +84,7 @@ class Paging {
   }
 }
 
-class Response {
+class Responsee {
   Fixture? fixture;
   League? league;
   Teams? teams;
@@ -92,7 +92,7 @@ class Response {
   Score? score;
   List<Events>? events;
 
-  Response(
+  Responsee(
       {this.fixture,
       this.league,
       this.teams,
@@ -100,7 +100,7 @@ class Response {
       this.score,
       this.events});
 
-  Response.fromJson(Map<String, dynamic> json) {
+  Responsee.fromJson(Map<String, dynamic> json) {
     fixture =
         json['fixture'] != null ? new Fixture.fromJson(json['fixture']) : null;
     league =

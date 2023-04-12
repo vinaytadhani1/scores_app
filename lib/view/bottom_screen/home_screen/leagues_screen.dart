@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:score_app/model/leagues_model.dart';
 import '../../../model/live_match_model.dart';
 import '../../../widget/common.dart';
-import 'leagues_seasons.dart';
 
 class Leagues_Screen extends StatefulWidget {
   const Leagues_Screen({super.key});
